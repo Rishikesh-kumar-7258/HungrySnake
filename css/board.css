@@ -1,0 +1,73 @@
+:root{
+    --score_size : 8vmin;
+}
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height : 100vh;
+    display : grid;
+    place-items : center;
+    background-color: #444;
+}
+
+nav{
+    position : absolute;
+    left : 10px;
+    top : 10px;
+}
+
+nav a{
+    color : white;
+    text-decoration: none;
+    font-size : 1.5rem;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+#gameBoard{
+    width : 90vmin;
+    height : 90vmin;
+    display : grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    background : linear-gradient(#075a07, #032903);
+}
+
+#gameBoard .head{
+    background-color : green;
+    border : 1px solid goldenrod;
+    /* border-radius: 50% 50% 0 0; */
+    border-radius: 4px;
+}
+
+/* #gameBoard .up{border-radius : 50% 50% 0 0;}
+#gameBoard .down{border-radius : 0 0 50% 50%;}
+#gameBoard .left{border-radius : 50% 0 0 50%;}
+#gameBoard .right{border-radius : 0 50% 50% 0;} */
+
+#gameBoard .food{
+    background: linear-gradient(red, darkred);
+    border : 1px solid brown;
+    border-radius : 30% 30% 50% 50%;
+}
+
+#gameBoard .body{
+    background : black;
+    border : 1px solid darkred;
+    border-radius: 50%;
+}
+
+#showScore{
+    position: absolute;
+    right : 0;
+    font-weight : bold;
+    font-size: var(--score_size);
+    padding : 10px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <title>Home | Hungry Snake</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="board.html">New Game</a></li>
+        <li id="rules">Rules</li>
+        <li id="settings">Settings</li>
+        <li><a href="#">High Scores</a></li>
+    </ul>
+
+    <div id="rulesBox">
+        <ol>
+            <li>Use arrow keys for movement</li>
+            <li>Eat food to increase your score</li>
+            <li>Size of the snake gets increased for every food he eats </li>
+            <li>Score will be given according to your spped and number of fruits eaten</li>
+            <li>score = (speed / 2) * number of fruits eaten</li>
+        </ol>
+    </div>
+</body>
+<script>
+    rules.addEventListener('mouseenter', function () {
+        rulesBox.style.display = "block";
+    })
+    rules.addEventListener('mouseleave', function () {
+        rulesBox.style.display = "none";
+    })
+</script>
+
+</html>
