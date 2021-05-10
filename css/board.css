@@ -41,6 +41,17 @@ nav a:hover{
     background : linear-gradient(green, darkgreen);
     border : 1px solid darkgreen;
     border-radius : 10px;
+    color : #fff;
+    font-weight: bold;
+    cursor : pointer;
+}
+
+#tgbtn:hover{
+    box-shadow : 2px 2px 8px 0 #000;
+}
+
+#tgbtn:active{
+    transform: scale(0.95);
 }
 
 #gameBoard{
@@ -86,10 +97,9 @@ nav a:hover{
     height : 20vmin;
     left : 50%;
     transform: translate(-50%);
-    display : none;
+    display : grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap : 10px;
 }
 
 .arrow{
@@ -106,6 +116,7 @@ nav a:hover{
     transform : translate(-50%);
     border: 7vmin solid transparent;
     border-bottom-color : green;
+    cursor: pointer;
 }
 
 .ctup{
@@ -118,13 +129,13 @@ nav a:hover{
 .ctleft{
     grid-row-start: 2;
     grid-row-end: 4;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) translateY(35%);
 }
 
 .ctright{
     grid-row-start: 2;
     grid-row-end: 4;
-    transform: rotate(90deg);
+    transform: rotate(90deg) translateY(35%);
 }
 
 .ctdown{
