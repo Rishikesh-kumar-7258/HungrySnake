@@ -19,6 +19,11 @@ nav{
     position : absolute;
     left : 10px;
     top : 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width : 25vw;
 }
 
 nav a{
@@ -29,6 +34,13 @@ nav a{
 
 nav a:hover{
     text-decoration: underline;
+}
+
+#tgbtn{
+    padding : 5px;
+    background : linear-gradient(green, darkgreen);
+    border : 1px solid darkgreen;
+    border-radius : 10px;
 }
 
 #gameBoard{
@@ -43,14 +55,8 @@ nav a:hover{
 #gameBoard .head{
     background-color : green;
     border : 1px solid goldenrod;
-    /* border-radius: 50% 50% 0 0; */
     border-radius: 4px;
 }
-
-/* #gameBoard .up{border-radius : 50% 50% 0 0;}
-#gameBoard .down{border-radius : 0 0 50% 50%;}
-#gameBoard .left{border-radius : 50% 0 0 50%;}
-#gameBoard .right{border-radius : 0 50% 50% 0;} */
 
 #gameBoard .food{
     background: linear-gradient(red, darkred);
@@ -70,4 +76,60 @@ nav a:hover{
     font-weight : bold;
     font-size: var(--score_size);
     padding : 10px;
+}
+
+#controls{
+    position : absolute;
+    bottom : 10%;
+    /* border: 1px solid green; */
+    width : 50vmin;
+    height : 20vmin;
+    left : 50%;
+    transform: translate(-50%);
+    display : none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap : 10px;
+}
+
+.arrow{
+    /* border: 1px solid red; */
+    position: relative;
+}
+
+.arrow::before{
+    content: "";
+    width : 0;
+    position : absolute;
+    bottom : 0px;
+    left : 50%;
+    transform : translate(-50%);
+    border: 7vmin solid transparent;
+    border-bottom-color : green;
+}
+
+.ctup{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    transform: translateY(-20%);
+}
+
+.ctleft{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    transform: rotate(-90deg);
+}
+
+.ctright{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    transform: rotate(90deg);
+}
+
+.ctdown{
+    grid-row-start: 3;
+    grid-column-start: 2;
+    grid-row-end: 5;
+    transform: rotate(180deg) translate(0, -20%);
 }
