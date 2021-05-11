@@ -16,6 +16,8 @@ let snakeArr = [
 
 let Food = { x: 9, y: 15 };
 
+let snhead;
+
 highScoreBoard.innerHTML = `HighScore : ${highScore}`;
 
 // main function
@@ -34,28 +36,16 @@ window.addEventListener('keydown', e => {
 
     switch (e.key) {
         case 'ArrowUp':
-            if (direction.y === 0) {
-                direction.x = 0;
-                direction.y = -1;
-            }
+            turn('up');
             break;
         case 'ArrowDown':
-            if (direction.y === 0) {
-                direction.x = 0;
-                direction.y = 1;
-            }
+            turn('down')
             break;
         case 'ArrowLeft':
-            if (direction.x === 0) {
-                direction.x = -1;
-                direction.y = 0;
-            }
+            turn('left')
             break;
         case 'ArrowRight':
-            if (direction.x === 0) {
-                direction.x = 1;
-                direction.y = 0;
-            }
+            turn('right')
             break;
         default:
             break;
@@ -112,7 +102,10 @@ function gameEngine() {
         let snakeElem = document.createElement('div');
         snakeElem.style.gridColumnStart = e.x;
         snakeElem.style.gridRowStart = e.y;
-        if (i === 0) snakeElem.classList.add('head');
+        if (i === 0) {
+            snakeElem.classList.add('head');
+            if (!(snhead === null)) snakeElem.classList.add(snhead);
+        }
         else snakeElem.classList.add('body');
         gameBoard.appendChild(snakeElem);
     })
@@ -160,29 +153,56 @@ arrow.forEach((e, i) => {
 
         switch (e.classList[1]) {
             case 'ctup':
-                if (direction.y === 0) {
-                    direction.x = 0;
-                    direction.y = -1;
-                }
+                turn('up')
                 break;
             case 'ctdown':
-                if (direction.y === 0) {
-                    direction.x = 0;
-                    direction.y = 1;
-                }
+                turn('down')
                 break;
             case 'ctleft':
-                if (direction.x === 0) {
-                    direction.x = -1;
-                    direction.y = 0;
-                }
+                turn('left');
                 break;
             case 'ctright':
-                if (direction.x === 0) {
-                    direction.x = 1;
-                    direction.y = 0;
-                }
+                turn('right');
                 break;
         }
     })
 })
+
+// turning the snake
+function turn(dir)
+{
+    switch (dir) {
+        case 'up':
+            if (direction.y === 0) {
+                direction.x = 0;
+                direction.y = -1;
+                snhead = 'hdup';
+            }
+            break;
+        case 'down':
+            if (direction.y === 0) {
+                direction.x = 0;
+                direction.y = 1;
+                snhead = 'hddown';
+            }
+            break;
+        case 'left':
+            if (direction.x === 0) {
+                direction.x = -1;
+                direction.y = 0;
+                snhead = 'hdleft';
+            }
+            break;
+        case 'right':
+            if (direction.x === 0) {
+                direction.x = 1;
+                direction.y = 0;
+                snhead = 'hdright';
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+//Function for index page to change the settings

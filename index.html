@@ -18,6 +18,14 @@
         <li><a href="#">High Scores</a></li>
     </ul>
 
+    <form id="setBox" action="/index.html" method="POST">
+        <div class="set">
+            <label for="speed">Speed</label>
+            <input type="number" name="speed" id="speed">
+        </div>
+        <input type="submit" value="Save Changes">
+    </form>
+
     <div id="rulesBox">
         <ol>
             <li>Use arrow keys for movement</li>
@@ -35,6 +43,16 @@
     rules.addEventListener('mouseleave', function () {
         rulesBox.style.display = "none";
     })
+
+    rulesBox.addEventListener('mouseenter', () => {
+        
+        rulesBox.style.dispay = "block";
+    })
+    rulesBox.addEventListener('mouseleave', () => {
+        
+        rulesBox.style.dispay = "none";
+    })
 </script>
+<!-- <script src="js/board.js"></script> -->
 
 </html>

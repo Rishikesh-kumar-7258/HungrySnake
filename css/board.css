@@ -66,7 +66,21 @@ nav a:hover{
 #gameBoard .head{
     background-color : green;
     border : 1px solid goldenrod;
-    border-radius: 4px;
+}
+
+.hdup{
+    border-radius: 50% 50% 0 0;
+}
+.hddown{
+    border-radius: 0 0 50% 50%;
+}
+
+.hdleft {
+    border-radius : 50% 0 0 50%;
+}
+
+.hdright{
+    border-radius : 0 50% 50% 0;
 }
 
 #gameBoard .food{
@@ -97,7 +111,7 @@ nav a:hover{
     height : 20vmin;
     left : 50%;
     transform: translate(-50%);
-    display : grid;
+    display : none;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
 }

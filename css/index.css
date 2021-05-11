@@ -1,6 +1,3 @@
-/* :root{
-    --scale : 0;
-} */
 *{
     margin : 0;
     padding : 0;
@@ -17,7 +14,6 @@ body{
 
 ul {
     width : 50vmin;
-    /* height : 50vmin; */
     display : flex;
     list-style-type: none;
     align-items: center;
@@ -47,10 +43,6 @@ ul li a{
     height : 100%;
 }
 
-/* #rules:hover{
-    --scale : 1;
-} */
-
 #rulesBox{
     display: none;
     position : absolute;
@@ -75,4 +67,19 @@ ol{
 
 ol li{
     padding : 20px 0;
+}
+
+#setBox{
+    position : absolute;
+    width : 50vw;
+    height : 50vh;
+    left : 50%;
+    top : 50%;
+    transform : translate(-50%, -50%);
+    border : 1px solid red;
+    padding : 10px;
+    display : none;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
 }
