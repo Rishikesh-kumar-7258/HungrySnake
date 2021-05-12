@@ -63,6 +63,12 @@ nav a:hover{
     background : linear-gradient(#075a07, #032903);
 }
 
+#gameBoard.over{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #gameBoard .head{
     background-color : green;
     border : 1px solid goldenrod;
@@ -157,4 +163,24 @@ nav a:hover{
     grid-column-start: 2;
     grid-row-end: 5;
     transform: rotate(180deg) translate(0, -20%);
+}
+
+#res{
+    position : absolute;
+    bottom : 0;
+    left : 50%;
+    transform : translate(-50%);
+    padding : 10px;
+    font-size : 1.5rem;
+    background : linear-gradient(green, darkgreen);
+    border : 1px solid darkgreen;
+    cursor : pointer;
+    border-radius : 20px;
+    font-size : bold;
+    color : white;
+    display : none;
+}
+
+#res:active{
+    transform : scale(.95) translate(-50%);
 }

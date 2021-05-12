@@ -18,6 +18,8 @@ let Food = { x: 9, y: 15 };
 
 let snhead;
 
+let gameState = "start";
+
 highScoreBoard.innerHTML = `HighScore : ${highScore}`;
 
 // main function
@@ -32,6 +34,22 @@ function main(ctime) {
 
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
+
+    // console.log(e.key);
+
+
+    if (gameState === 'over' || gameState === 'start') {
+        if (e.key === ' ') {
+            gameState = 'play';
+            gameBoard.classList.remove('over');
+            scoreBoard.innerHTML = `Score : ${score}`;
+            snakeArr = [
+                { x: 5, y: 10 }
+            ]
+            direction = {x : 0, y : 0};
+            gameEngine();
+        }
+    }
 
 
     switch (e.key) {
@@ -67,17 +85,31 @@ function isCollision(snakeArr) {
 
 function gameEngine() {
 
+    if (gameState === 'over') {
+        let mess = document.createElement('div');
+        gameBoard.innerHTML = "";
+        mess.innerHTML = '<h1>Game Over</h1><br><h3>Press space to play again </h3>';
+        gameBoard.classList.add('over');
+        gameBoard.appendChild(mess);
+        return;
+    }
+
+    if (gameState === 'start') {
+        let mess = document.createElement('div');
+        gameBoard.innerHTML = "";
+        mess.innerHTML = '<h2>Press space to play</h2>'
+        gameBoard.classList.add('over');
+        gameBoard.appendChild(mess);
+        return;
+    }
+
     // If collision occurs
     if (isCollision(snakeArr)) {
         direction = { x: 0, y: 0 };
         score = 0;
         localStorage.setItem('hiscore', highScore);
-        alert("Game Over! press any key to continue");
-        scoreBoard.innerHTML = `Score : ${score}`;
-        snakeArr = [
-            { x: 5, y: 10 }
-        ]
-        gameEngine();
+        gameState = 'over';
+
     }
 
     // when Snake eates the food
@@ -136,14 +168,25 @@ function isOccupied(Food) {
 
 // Making controls for mobiles
 tgbtn.addEventListener('click', () => {
-    if (controls.style.display === "grid")
-    {
+    if (controls.style.display === "grid") {
         controls.style.display = "none";
     }
-    else{
+    else {
         controls.style.display = "grid";
     }
+
+    if (res.style.display === 'block')
+    {
+        res.style.display = 'none';
+    }
+    else{
+        res.style.display = 'block';
+    }
 })
+
+// res.addEventListener('click', () => {
+    
+// })
 
 let arrow = document.querySelectorAll('.arrow');
 
@@ -169,8 +212,7 @@ arrow.forEach((e, i) => {
 })
 
 // turning the snake
-function turn(dir)
-{
+function turn(dir) {
     switch (dir) {
         case 'up':
             if (direction.y === 0) {
